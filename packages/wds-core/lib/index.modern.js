@@ -1,0 +1,2 @@
+const e={400:"#fe415c"},f={50:"#f2fbf5",100:"#e4f4ec",400:"#08ba9c"},c={400:"#3366ff",800:"#002fdb"},o={100:"#f8f8f8",200:"#e1e2e3",300:"#cccccc",400:"#aaaaaa",500:"#939393",600:"#888888",700:"#767676",800:"#666666",900:"#333333"},a={black:"#000000",white:"#ffffff"},r=8,l={palette:{primary:c[400],secondary:f[400],error:e[400],divider:o[500],common:a,colors:{__proto__:null,red:e,green:f,blue:c,grey:o,common:a}},spacing:e=>8*e,zIndex:{modal:1e3,tooltip:1100}};export{r as DEFAULT_SPACE,l as theme};
+//# sourceMappingURL=index.modern.js.map

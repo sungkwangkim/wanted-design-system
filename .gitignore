@@ -1,0 +1,17 @@
+*.DS_Store
+*.log
+*.tsbuildinfo
+.ultra.cache.json
+
+.nyc_output/
+node_modules
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+**/node_modules/

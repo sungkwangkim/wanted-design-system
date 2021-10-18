@@ -1,0 +1,21 @@
+{
+  "name": "@wds/core",
+  "packageManager": "yarn@3.0.2",
+  "source": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.module.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepack": "yarn build"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "devDependencies": {
+    "microbundle": "^0.14.1",
+    "typescript": "^4.4.4"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "wanted-design-system",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "resolutions": {
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "build:all": "yarn workspaces foreach -t -p run build"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}

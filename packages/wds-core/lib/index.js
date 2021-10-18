@@ -1,0 +1,2 @@
+var e={400:"#fe415c"},f={50:"#f2fbf5",100:"#e4f4ec",400:"#08ba9c"},r={400:"#3366ff",800:"#002fdb"},c={100:"#f8f8f8",200:"#e1e2e3",300:"#cccccc",400:"#aaaaaa",500:"#939393",600:"#888888",700:"#767676",800:"#666666",900:"#333333"},o={black:"#000000",white:"#ffffff"},a={palette:{primary:r[400],secondary:f[400],error:e[400],divider:c[500],common:o,colors:{__proto__:null,red:e,green:f,blue:r,grey:c,common:o}},spacing:function(e){return 8*e},zIndex:{modal:1e3,tooltip:1100}};exports.DEFAULT_SPACE=8,exports.theme=a;
+//# sourceMappingURL=index.js.map
