@@ -59,15 +59,7 @@ export const useStyles = createUseStyles<RuleNames>({
         color: '#cccccc',
       },
     },
-    '&:active': {
-      color: '#cccccc',
-      backgroundColor: '#002fdb',
-      '&:disabled': {
-        backgroundColor: '#f2f4f7',
-        color: '#cccccc',
-      },
-    },
-    '&:focus': {
+    '&:active, &:focus': {
       color: '#cccccc',
       backgroundColor: '#002fdb',
       '&:disabled': {
@@ -95,16 +87,7 @@ export const useStyles = createUseStyles<RuleNames>({
       color: '#002fdb',
       borderColor: '#002fdb',
     },
-    '&:active': {
-      color: '#002fdb',
-      borderColor: '#002fdb',
-      '&:disabled': {
-        backgroundColor: '#f2f4f7',
-        borderColor: 'transparent',
-        color: '#cccccc',
-      },
-    },
-    '&:focus': {
+    '&:active, &:focus': {
       color: '#002fdb',
       borderColor: '#002fdb',
       '&:disabled': {

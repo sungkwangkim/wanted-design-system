@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { CircleAlert, Search } from '../Icon'
+import { Search } from '../Icon'
 import Button from './Button'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

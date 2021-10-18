@@ -9,7 +9,7 @@ export interface IButtonProps {
   children: React.ReactNode
   className?: string
   color?: 'primary'
-  variant?: 'contained' | 'outlined' | 'text' | 'icon'
+  variant?: 'contained' | 'outlined' | 'text'
   component?: React.ElementType
   size?: 'small' | 'medium' | 'large'
   disabled?: boolean

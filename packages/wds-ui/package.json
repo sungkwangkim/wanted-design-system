@@ -37,6 +37,7 @@
   "dependencies": {
     "@wds/core": "workspace:packages/wds-core",
     "clsx": "^1.1.1",
+    "jss-plugin-nested": "^10.8.1",
     "react-jss": "^10.8.1"
   }
 }
