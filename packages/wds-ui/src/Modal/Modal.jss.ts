@@ -2,8 +2,6 @@ import { createUseStyles } from 'react-jss'
 
 import { theme } from '@wds/core'
 
-console.log(theme)
-
 type RuleNames = any
 
 export const useStyles = createUseStyles<RuleNames>({

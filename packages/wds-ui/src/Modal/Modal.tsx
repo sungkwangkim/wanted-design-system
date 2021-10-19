@@ -10,8 +10,8 @@ interface IModalProps {
   className?: string
   bodyClassName?: string
   open?: boolean
-  onBackdropClick?: () => void
-  onClose?: () => void
+  onBackdropClick?: React.ReactEventHandler<{}>
+  onClose?: (event: React.ReactEventHandler<{}>, reason?: string) => void
   disableBackdropClick?: boolean
   disableEscapeKeyDown?: boolean
   backdropBlur?: boolean
@@ -40,19 +40,8 @@ const Modal = React.forwardRef<HTMLDivElement, IModalProps>((props, ref) => {
     scroll,
   } = props
   const styles = useStyles()
-  const portalRef = React.useRef(null)
-  const rootRef = React.useRef(null)
-  const handleRef = ref || rootRef
-
-  React.useEffect(() => {
-    if (!open) {
-      return
-    }
-    if (handleRef.current) {
-      handleRef.current.setAttribute('tabIndex', -1)
-      handleRef.current.focus()
-    }
-  }, [open, handleRef])
+  const portalRef = React.useRef<HTMLDivElement | null>(null)
+  const rootRef = React.useRef<HTMLDivElement | null>(null)
 
   useCustomEffect(() => {
     const { body } = document
@@ -66,6 +55,17 @@ const Modal = React.forwardRef<HTMLDivElement, IModalProps>((props, ref) => {
       Object.assign(body.style, { overflow: '' })
     }
   }, [open])
+
+  useCustomEffect(() => {
+    if (rootRef.current) {
+      rootRef.current.focus()
+    }
+
+    document.addEventListener('keydown', handleKeyDown, false)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown, false)
+    }
+  }, [rootRef])
 
   const rootClasses = clsx(
     {
@@ -122,7 +122,12 @@ const Modal = React.forwardRef<HTMLDivElement, IModalProps>((props, ref) => {
   return (
     <Portal ref={portalRef}>
       {open && (
-        <div className={rootClasses} ref={handleRef} onKeyDown={handleKeyDown}>
+        <div
+          className={rootClasses}
+          ref={rootRef}
+          // onKeyDown={handleKeyDown}
+          tabIndex={-1}
+        >
           <div onClick={handleBackdropClick} className={backdropClasses} />
           {/* Backdrop 보단 아래, children 보다는 상위에 두고 싶을 때 */}
           {otherElement && otherElement()}

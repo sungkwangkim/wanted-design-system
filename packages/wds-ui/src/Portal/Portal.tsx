@@ -1,30 +1,25 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { FocusableRef } from '../types'
-
 interface IPortalProps {
   children: React.ReactNode
 }
 
-const Portal = React.forwardRef<FocusableRef<HTMLElement>, IPortalProps>(
+const useCustomEffect =
+  typeof window === 'undefined' ? React.useEffect : React.useLayoutEffect
+
+const Portal = React.forwardRef<HTMLDivElement | null, IPortalProps>(
   (props, ref) => {
     const { children } = props
-    const [mountNode, setMountNode] = React.useState(null)
-    React.useEffect(() => setMountNode(document.body), [])
+    const [moundNode, setMoundNode] = React.useState<HTMLElement | null>(null)
 
-    React.useEffect(() => {
-      if (mountNode) {
-        mountNode.current = ref
-        return () => {
-          mountNode.current = null
-        }
-      }
+    useCustomEffect(() => {
+      setMoundNode(document.body)
+    })
 
-      return undefined
-    }, [ref, mountNode])
+    const content = <div ref={ref}>{children}</div>
 
-    return mountNode ? ReactDOM.createPortal(children, mountNode) : mountNode
+    return moundNode ? ReactDOM.createPortal(content, document.body) : moundNode
   }
 )
 
