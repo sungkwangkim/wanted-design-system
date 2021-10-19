@@ -44,8 +44,6 @@ const Modal = React.forwardRef<HTMLDivElement, IModalProps>((props, ref) => {
   const rootRef = React.useRef(null)
   const handleRef = ref || rootRef
 
-  console.log(styles)
-
   React.useEffect(() => {
     if (!open) {
       return
